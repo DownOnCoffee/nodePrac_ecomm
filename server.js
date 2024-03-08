@@ -4,6 +4,7 @@ const db=require('./db');
 const bodyParser=require('body-parser');
 const Customerroutes=require('./routes/Customerroutes');
 const CatalogueRoutes=require('./routes/CatalogueRoutes');
+require('dotenv').config();
 
 app.use(bodyParser.json());
 
@@ -15,7 +16,5 @@ app.get('/pizza', function (req, res) {
 app.use('/customer',Customerroutes);
 app.use('/catalogue',CatalogueRoutes);
 
-
-
-
-app.listen(3000);
+const port=process.env.PORT || 3000;
+app.listen(port);

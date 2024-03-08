@@ -1,7 +1,9 @@
 const mongoose=require('mongoose');
-const dburl="mongodb://localhost:27017/e-comm";
-mongoose.connect(dburl);
 const db=mongoose.connection;
+require('dotenv').config();
+const dburl=process.env.MONGODB_URL;
+mongoose.connect(dburl);
+
 db.on('connected', () => {
     console.log('someone connected!');
   });

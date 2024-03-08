@@ -29,4 +29,23 @@ router.get('/',async (req,res)=>{
     }
 
 });
+
+router.delete('/:id',async (req,res)=>{
+    try{
+        const id=req.params.id;
+        const deleteRes=await DressCatalogue.findByIdAndDelete(id);
+
+        if (!deleteRes){
+             res.status(404).send('id not found');
+        }
+
+        res.status(200).send('id deleted');
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json("Internal server error");
+
+    }
+    
+});
 module.exports = router;

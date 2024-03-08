@@ -73,7 +73,7 @@ router.delete('/:id',async (req,res)=>{
     try{
         const id=req.params.id;
        
-        const deleteRes=await Customer.findByIdAndRemove(id);
+        const deleteRes=await Customer.findByIdAndDelete(id);
 
         if (!deleteRes){
              res.status(404).send('id not found');
