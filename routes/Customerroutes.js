@@ -6,9 +6,7 @@ router.get('/',async (req,res)=>{
     try{
         const data=await Customer.find();
         res.send(data);
-        console.log("data sent successfully");
-
-
+        
     }catch(err){
         console.log(err);
         res.status(500).json("internal sever error");
