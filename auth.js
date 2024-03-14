@@ -8,13 +8,13 @@ passport.use(new LocalStrategy(async (username, password, done) => {
     try {
        
         const user = await Customer.findOne({ username });
-        console.log(username);
-        console.log(user);
+        // console.log(username);
+        // console.log(user);
         if (!user){
            
             return done(null, false, { message: 'Incorrect username.' });
         }
-        
+        ;
         const isMatch = await user.comparepassword(password);
         if (isMatch){
             

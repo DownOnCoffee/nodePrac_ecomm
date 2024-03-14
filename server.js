@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 });
 
 
-app.use('/customer',localAuthMiddleware ,Customerroutes);
+app.use('/customer',Customerroutes);
 app.use('/catalogue',CatalogueRoutes);
 
 const port=process.env.PORT || 3000;
